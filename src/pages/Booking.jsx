@@ -18,7 +18,7 @@ export default function Booking() {
           return;
         }
 
-        const res = await axios.get("http://localhost:9000/api/booking", {
+        const res = await axios.get("http://localhost:30082/api/booking", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

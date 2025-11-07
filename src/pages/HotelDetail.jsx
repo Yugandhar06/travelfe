@@ -47,7 +47,7 @@ export default function HotelDetail() {
         return;
       }
 
-      await axios.post('http://localhost:9000/api/booking', {
+      await axios.post('http://localhost:30082/api/booking', {
         type: 'STAY',
         itemId: stay.id,
         numPersons,

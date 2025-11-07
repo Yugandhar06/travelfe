@@ -16,7 +16,7 @@ export default function Cars() {
     const fetchCars = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:9000/api/car', {
+        const response = await axios.get('http://localhost:30082/api/car', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCars(response.data);

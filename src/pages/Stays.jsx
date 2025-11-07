@@ -19,7 +19,7 @@ export default function Stays() {
           console.error('No token found. Please log in.');
           return;
         }
-        const response = await axios.get('http://localhost:9000/api/stay', {
+        const response = await axios.get('http://localhost:30082/api/stay', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStays(response.data);

@@ -22,7 +22,7 @@ export default function Flights() {
     const fetchFlights = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:9000/api/flight', {
+        const response = await axios.get('http://localhost:30082/api/flight', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setFlights(response.data);
@@ -51,7 +51,7 @@ export default function Flights() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:9000/api/booking', {
+      await axios.post('http://localhost:30082/api/booking', {
         type: 'FLIGHT',
         itemId: selectedFlight.id,
         numPersons: passengerCount,

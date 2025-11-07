@@ -25,9 +25,9 @@ export default function AdminDashboard() {
     const fetchData = async () => {
       try {
         const [staysRes, flightsRes, carsRes] = await Promise.all([
-          axios.get('http://localhost:9000/api/admin/stay', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://localhost:9000/api/admin/flight', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://localhost:9000/api/admin/car', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('http://localhost:30082/api/admin/stay', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('http://localhost:30082/api/admin/flight', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('http://localhost:30082/api/admin/car', { headers: { Authorization: `Bearer ${token}` } }),
         ]);
         setStays(staysRes.data);
         setFlights(flightsRes.data);
@@ -41,7 +41,7 @@ export default function AdminDashboard() {
 
   const handleAddStay = async () => {
     try {
-      await axios.post('http://localhost:9000/api/admin/stay', newStay, {
+      await axios.post('http://localhost:30082/api/admin/stay', newStay, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStays([...stays, { ...newStay, id: Date.now() }]);
@@ -54,7 +54,7 @@ export default function AdminDashboard() {
 
   const handleAddFlight = async () => {
     try {
-      await axios.post('http://localhost:9000/api/admin/flight', newFlight, {
+      await axios.post('http://localhost:30082/api/admin/flight', newFlight, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFlights([...flights, { ...newFlight, id: Date.now() }]);
@@ -70,7 +70,7 @@ export default function AdminDashboard() {
 
   const handleAddCar = async () => {
     try {
-      await axios.post('http://localhost:9000/api/admin/car', newCar, {
+      await axios.post('http://localhost:30082/api/admin/car', newCar, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCars([...cars, { ...newCar, id: Date.now() }]);
@@ -86,7 +86,7 @@ export default function AdminDashboard() {
 
   const handleUpdateStay = async () => {
     try {
-      await axios.put(`http://localhost:9000/api/admin/stay/${editStay.id}`, editStay, {
+      await axios.put(`http://localhost:30082/api/admin/stay/${editStay.id}`, editStay, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStays(stays.map((stay) => (stay.id === editStay.id ? editStay : stay)));
@@ -99,7 +99,7 @@ export default function AdminDashboard() {
 
   const handleUpdateFlight = async () => {
     try {
-      await axios.put(`http://localhost:9000/api/admin/flight/${editFlight.id}`, editFlight, {
+      await axios.put(`http://localhost:30082/api/admin/flight/${editFlight.id}`, editFlight, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFlights(flights.map((flight) => (flight.id === editFlight.id ? editFlight : flight)));
@@ -112,7 +112,7 @@ export default function AdminDashboard() {
 
   const handleUpdateCar = async () => {
     try {
-      await axios.put(`http://localhost:9000/api/admin/car/${editCar.id}`, editCar, {
+      await axios.put(`http://localhost:30082/api/admin/car/${editCar.id}`, editCar, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCars(cars.map((car) => (car.id === editCar.id ? editCar : car)));
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
 
   const handleDeleteStay = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/api/admin/stay/${id}`, {
+      await axios.delete(`http://localhost:30082/api/admin/stay/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStays(stays.filter((stay) => stay.id !== id));
@@ -137,7 +137,7 @@ export default function AdminDashboard() {
 
   const handleDeleteFlight = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/api/admin/flight/${id}`, {
+      await axios.delete(`http://localhost:30082/api/admin/flight/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFlights(flights.filter((flight) => flight.id !== id));
@@ -149,7 +149,7 @@ export default function AdminDashboard() {
 
   const handleDeleteCar = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/api/admin/car/${id}`, {
+      await axios.delete(`http://localhost:30082/api/admin/car/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCars(cars.filter((car) => car.id !== id));
